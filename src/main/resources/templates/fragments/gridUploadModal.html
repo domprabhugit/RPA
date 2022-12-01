@@ -1,0 +1,253 @@
+<div th:fragment="gridUploadModal">
+<div class="modal fade" id="gridUploadModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-info" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Transaction Results</h4>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+								<div class="card-header">
+									Transaction Details <small> <code> . Transaction
+											ID: </code>
+									</small>
+								</div>
+								<input id="gridUploadModal_transactionId" type="text" class="form-control"
+									placeholder="-" />
+								<div class="card-body">
+									<form action="" method="post" class="form-horizontal" id="gridForm">
+										
+									<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="ProcessPhase" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_processPhase" type="text"
+													class="form-control" placeholder="-"  readonly="readonly"/>
+											</div>
+										</div>	
+										
+										
+										<div class="form-group row">
+											<div class="col-5">
+												<input type="text" class="form-control"
+													placeholder="Transaction Status:" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_transactionStatus" type="text"
+													class="form-control" placeholder="-"  readonly="readonly"/>
+											</div>
+										</div>
+										
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Process Status" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_processStatus" type="text"
+													class="form-control" placeholder="-"  readonly="readonly"/>
+											</div>
+										</div>
+										
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Total Validation Files" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_totalValidationFiles" type="text"
+													class="form-control" placeholder="-"  readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Total Validation Success" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_totalValidationSuccess" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Total Validation Error" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_totalValidationError" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										
+										
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Total Upload Files" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_totalUploadFiles" type="text"
+													class="form-control" placeholder="-"  readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Total Upload Success" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_totalUploadSuccess" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Total Upload Error" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_totalUploadError" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										
+										
+										<div class="form-group row ">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Total Error" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_totalErrorFiles" type="text"
+													class="form-control" placeholder="-"  readonly="readonly" />
+											</div>
+										</div>
+										
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Exception log" />
+											</div>
+											<div class="col-7">
+												<textarea id="gridUploadModal_exceptionLog" 
+													class="form-control"  ></textarea>
+											</div>
+										</div>
+										
+										<div class="form-group row ">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Files List" />
+											</div>
+											<div class="col-7">
+												<select id="filesSelection" class="form-control form-control-md"><option value="0">Select the File</option></select>
+											</div>
+										</div>
+										<div class="form-group row gridStatus">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="File Type" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_gridFileType" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row gridStatus">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Total Sheets" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_gridTotalSheetCount" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row gridStatus">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="validated Sheets" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_gridValidateNo" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row gridStatus">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="uploaded Sheets" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_gridSuccessNo" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row gridStatus">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="File Status" />
+											</div>
+											<div class="col-7">
+												<input id="gridUploadModal_gridFileStatus" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row gridStatus">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Sheet Name with Error" />
+											</div>
+											<div class="col-7">
+												<textarea id="gridUploadModal_gridValidationSheetList" type="text" 
+													class="form-control" placeholder="-" readonly="readonly" >
+													</textarea>
+											</div>
+										</div>
+										<div class="form-group row gridStatus">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Sheets with Validation Error" />
+											</div>
+											<div class="col-7">
+												<textarea id="gridUploadModal_gridErrorSheetList" type="text" 
+													class="form-control" placeholder="-" readonly="readonly" >
+													</textarea>
+											</div>
+										</div>
+										
+										<input id="gridUploadModal_SuccessFilePath" type="hidden" class="form-control"
+							placeholder="-" /> <input id="gridUploadModal_ErrorFilePath" type="hidden"
+							class="form-control" placeholder="-" /> 
+									</form>
+								</div>
+								<div class="card-footer gridStatus">
+									<button type="button"  id="gridUploadModal_ErrorFileDownload"  class="btn btn-sm btn-danger">Download
+										Error File</button>
+									<button type="button" id="gridUploadModal_SuccessFileDownload" class="btn btn-sm btn-primary">Download
+										Success File</button>
+									<button type="button"  id="gridUploadModal_CountFileDownload"  class="btn btn-sm btn-warning">Sheet count Status
+										</button>
+										<a id="hiddenAnchor" target="_blank"></a>
+								</div>
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Close</button>
+									
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+			</div>

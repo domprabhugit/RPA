@@ -1,0 +1,7 @@
+{
+  "realm" : "TekplayRobo",
+  "resource" : "hawtio-client",
+  "auth-server-url" : "http://localhost:9091/auth",
+  "ssl-required" : "external",
+  "public-client" : true
+}

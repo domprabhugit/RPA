@@ -1,0 +1,189 @@
+
+
+<div th:fragment="marutiPolicyUploadModal">
+<div class="modal fade" id="marutiPolicyUploadTranModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-info" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Transaction Results</h4>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>
+				<div class="card-header">
+					Transaction Details <small> <code> . Transaction ID:
+						</code>
+					</small>
+				</div>
+				<input id="marutiPolicyExtraction_transactionId" type="text" class="form-control"
+					placeholder="-" />
+				<div class="card-body">
+					<form action="" method="post" class="form-horizontal">
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Transaction Status:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyUpload_transactionStatus" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Phase" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyUpload_processPhase" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Status" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyUpload_processStatus" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Policies taken for upload:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyUpload_PoliciedTaken" type="text" class="form-control"
+									placeholder="-" readonly="readonly"/>
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Policy pdf uploaded:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyUpload_PolicyPdfExtracted" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Proposal pdf uploaded" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyUpload_ProposalPdfExtracted" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						
+						<div class="form-group row hideDiv">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Exception log" />
+											</div>
+											<div class="col-7">
+												<textarea id="marutiPolicyUpload_exceptionLog" 
+													class="form-control"  ></textarea>
+											</div>
+										</div>
+						
+					</form>
+				</div>
+				
+				<!-- 	<div class="card-header">
+						Extraction Status  - <b><span id ="extractionStatusDate"></span></b>
+					</div>
+					<div class="card-body">
+					<div class="form-group row hideDiv">
+						<div class="col-5">
+							<input id="marutiPolicyExtraction_monthYear" type="text" class="form-control"
+									placeholder="MM/YYYY" />
+						</div>
+						<div class="col-7">
+							<select id="statusSelection" class="form-control form-control-md"><option value="">Select Status Type</option><option value="P">Pending</option><option value="C" >Completed</option></select>
+							</div>
+					</div>
+					<div class="form-group row hideDiv">
+							<div class="col-5">
+								<select id="marutiPolicyDateList" name="select1" class="form-control form-control-md" required="">
+		                          <option value="0">Please select Date</option>
+		                        </select>
+                       		 </div>
+                       		 <div class="col-7">
+						<button type="button" id="getMarutiDailyStatus" class="btn btn-sm btn-primary">Get Extraction Status</button>
+						</div>
+					</div>
+				
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Total Policies:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_TotalPolicies" type="text" class="form-control"
+									placeholder="-" readonly="readonly"/>
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Total Policy pdf extracted:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_TotalPolicyPdfExtracted" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Total Proposal pdf extracted:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_TotalProposalPdfExtracted" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Total Policy pdf Uploaded:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_TotalPolicyPdfUploaded" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Total Proposal pdf Uploaded:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_TotalProposalPdfUploaded" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+					</div> -->
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+</div>
+

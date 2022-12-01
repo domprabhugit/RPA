@@ -1,0 +1,224 @@
+<div th:fragment="lifeLineMigrationModal">
+	<div class="modal fade" id="migrationModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-info" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Migration Status</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>
+					
+					<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Migration Status:" />
+							</div>
+							<div class="col-7">
+								<input id="mig_transactionStatus" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Phase" />
+							</div>
+							<div class="col-7">
+								<input id="mig_processPhase" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Status" />
+							</div>
+							<div class="col-7">
+								<input id="mig_processStatus" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						
+					<div class="card-header migrationDataDiv">
+						<b>Migartion Date -</b> <span id="migrationDate"></span>
+					</div>
+					<div class="card-body migrationDataDiv">
+						<form action="" method="post" class="form-horizontal">
+							<div class="form-group row">
+								<div class="col-4 card-header">
+									<b>Stage Type</b>
+								</div>
+								<div class="col-4 card-header">
+									<b>FirstGen</b>
+								</div>
+								<div class="col-4 card-header">
+									<b>I-Longue</b>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Approved count</div>
+								<div class="col-4">
+									<input id="approvedCount_F" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="approvedCount_I" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Cancelled count</div>
+								<div class="col-4">
+									<input id="cancelledCount_F" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="cancelledCount_I" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Healthclaims count</div>
+								<div class="col-4">
+									<input id="heathClaimsCount_F" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="heathClaimsCount_I" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Healthinward count</div>
+								<div class="col-4">
+									<input id="heathInwardCount_F" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="heathInwardCount_I" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Licenseagent count</div>
+								<div class="col-4">
+									<input id="licenseAgentCount_F" type="text"
+										class="form-control" placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="licenseAgentCount_I" type="text"
+										class="form-control" placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Lifeline count</div>
+								<div class="col-4">
+									<input id="lifeLineCount_F" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="lifeLineCount_I" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Mobileinward count</div>
+								<div class="col-4">
+									<input id="mobileInwardCount_F" type="text"
+										class="form-control" placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="mobileInwardCount_I" type="text"
+										class="form-control" placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Motor count</div>
+								<div class="col-4">
+									<input id="motorClaimsCount_F" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="motorClaimsCount_I" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Pipeline count</div>
+								<div class="col-4">
+									<input id="pipeLineCount_F" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="pipeLineCount_F" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Renewalpolicy count</div>
+								<div class="col-4">
+									<input id="renewalpolicyCount_F" type="text"
+										class="form-control" placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="renewalpolicyCount_I" type="text"
+										class="form-control" placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Xgenhealthclaims count</div>
+								<div class="col-4">
+									<input id="xgenHealthClaimsCount_F" type="text"
+										class="form-control" placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="xgenHealthClaimsCount_I" type="text"
+										class="form-control" placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-4">Receipt count</div>
+								<div class="col-4">
+									<input id="receiptCount_F" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+								<div class="col-4">
+									<input id="receiptCount_I" type="text" class="form-control"
+										placeholder="-" readonly="readonly" />
+								</div>
+							</div>
+
+
+						</form>
+					</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- Modal for GL Batch process ends here -->
+</div>

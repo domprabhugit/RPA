@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="Prodian Robo - Application Configuration" />
+<meta name="author" content="Dominic D Prabhu" />
+<meta name="keyword"
+	content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js" />
+<link rel="shortcut icon" href="img/favicon.png" />
+<title>Prodian Robo - Agent Masters</title>
+
+<!-- Icons -->
+<link href="vendors/css/font-awesome.min.css" rel="stylesheet" />
+<link href="vendors/css/simple-line-icons.min.css" rel="stylesheet" />
+
+<!-- Main styles for this application -->
+<link href="css/style.css" rel="stylesheet" />
+
+<link rel="stylesheet"
+	href="css/bootstrap-datepicker/datepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dt/datatables.min.css" />
+
+<link href="css/toastr.min.css" rel="stylesheet" />
+
+<!-- Styles required by this views -->
+
+</head>
+
+<body
+	class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+	<header class="app-header navbar">
+		<button
+			class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto"
+			type="button">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="#"></a>
+		<button class="navbar-toggler sidebar-toggler d-md-down-none"
+			type="button">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<ul class="nav navbar-nav d-md-down-none">
+			<li class="nav-item px-3"><a class="nav-link"
+				th:href="@{/dashboard}">Home</a></li>
+				<li class="nav-item px-3"><a class="nav-link"
+				th:href="@{/agentIncentiveCalculation}">Incentive Report</a></li>
+			<!-- <li class="nav-item px-3"><a class="nav-link"
+				th:href="@{/users}">Users</a></li>
+			<li class="nav-item px-3"><a class="nav-link" href="#">Settings</a> 
+			</li>-->
+		</ul>
+		<ul class="nav navbar-nav ml-auto">
+			<li class="nav-item d-md-down-none"><a class="nav-link" href="#"><i
+					class="icon-bell"></i><span class="badge badge-pill badge-danger">0</span></a>
+			</li>
+			<li class="nav-item d-md-down-none"><a class="nav-link" href="#"><i
+					class="icon-list"></i></a></li>
+			<li class="nav-item d-md-down-none"><a class="nav-link" href="#"><i
+					class="icon-location-pin"></i></a></li>
+			<li class="nav-item dropdown"><a class="nav-link"
+				data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+				aria-expanded="false"> <img src="img/avatars/6.jpg"
+					class="img-avatar" alt="http://prodian.co.in" />
+			</a>
+				<div class="dropdown-menu dropdown-menu-right">
+					<div class="dropdown-header text-center">
+						<strong>Account</strong>
+					</div>
+					<a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i>
+						Updates<span class="badge badge-info">0</span></a>
+					<div class="dropdown-header text-center">
+						<strong>Settings</strong>
+					</div>
+					<a class="dropdown-item" href="#"><i class="fa fa-user"></i>
+						Profile</a> <a class="dropdown-item" href="#"><i
+						class="fa fa-wrench"></i> Settings</a>
+					<div class="divider"></div>
+					<a class="dropdown-item" th:href="@{/users}"><i
+						class="fa fa-shield"></i> Users</a> <a class="dropdown-item"
+						th:href="@{/logout}"><i class="fa fa-lock"></i> Logout</a>
+				</div></li>
+		</ul>
+		<button class="navbar-toggler aside-menu-toggler" type="button">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+	</header>
+	<div id="pageLoader" style="display: none;"></div>
+	<div class="app-body">
+		<!-- div class="sidebar">
+			<nav class="sidebar-nav">
+				<ul class="nav">
+					<li class="nav-title">Dashboard</li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/dashboard}"><i class="icon-speedometer"></i>
+							Dashboard <span class="badge badge-primary">NEW</span></a></li>
+
+					<li class="nav-title">Robo UI</li>
+					<li class="nav-item nav-dropdown"><a
+						class="nav-link nav-dropdown-toggle" href="#"><i
+							class="icon-settings"></i>Actions</a>
+						<ul class="nav-dropdown-items">
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/businessprocess}"><i
+									class="fa fa-gears fa-lg mt-4"></i>Transaction Details</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/emailconfig}"><i
+									class="fa fa-envelope-open fa-lg mt-4"></i>Email Configuration</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/applicationConfig}"><i
+									class="fa icon-globe fa-lg mt-4"></i>Application Configuration</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/folderConfig}"><i
+									class="fa fa-folder-open fa-lg mt-4"></i>Folder Configuration</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/policyExtraction}"><i
+									class="fa fa-download fa-lg mt-4"></i>Policy Extraction</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/firstgenPolicyExtraction}"><i
+									class="fa fa-download fa-lg mt-4"></i>XGEN Policy Extraction</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/fileupload}"><i class="fa fa-file fa-lg mt-4"></i>File
+									Upload</a></li>
+						</ul></li>
+					<li class="nav-item"><a class="nav-link nav-link-danger"
+						th:href="${@environment.getProperty('control.tower.hawtio.URL')}" target="_top"><i
+							class="icon-layers"></i>Control Tower</a></li>
+				</ul>
+			</nav>
+		</div> -->
+
+		<!-- Main content -->
+		<main class="main" style="margin-left:0px;"> <!-- Breadcrumb -->
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">Home</li>
+			<li class="breadcrumb-item">Admin</li>
+			<li class="breadcrumb-item active">Agent Masters</li>
+
+			<!-- Breadcrumb Menu-->
+			<li class="breadcrumb-menu d-md-down-none">
+				<div class="btn-group" role="group" aria-label="Button group">
+					<a class="btn" href="#"><i class="icon-speech"></i></a> <a
+						class="btn" th:href="@{/dashboard}"><i class="icon-graph"></i>
+						&nbsp;Dashboard</a> <a class="btn" href="#"><i
+						class="icon-settings"></i> &nbsp;Settings</a>
+				</div>
+			</li>
+		</ol>
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-8 center-block pull-xs-none">
+					<div class="card vamiddle">
+						<div class="card-block p-a-2">
+							<h2>Agent Masters</h2>
+							<!-- <p class="text-muted">Manage details</p> -->
+
+							<div class="form-group row">
+								<label class="col-md-3 col-form-label">Master </label>
+								<div class="col-md-9">
+									<select id="masterType" name="select"
+										class="form-control" size="1">
+										<!-- <option value="0" >Select</option> -->
+										<option value="1" >Per Policy</option>
+										<option value="2" >Agent Access/Late-Login</option>
+										<option value="3" >Agent Slab Master</option>
+										<option value="4" >In House Leads</option>
+										<option value="5" >TL Slab Master</option>
+										<option value="6" >TL In-house Slab</option>
+										<option value="7" >PL Slab Master</option>
+										<option value="8" >Lead Target Master</option>
+									</select>
+								</div>
+							</div>
+							
+							<!-- Per Policy Master Add Starts Here-->
+							<div class="form-group row perPolicy">
+								<label class="col-md-3 col-form-label"> Key</label>
+								<div class="col-md-9">
+									<input id="1_key" type="text" class="form-control"
+										placeholder="Key" />
+								</div>
+							</div>
+							
+							<div class="form-group row perPolicy">
+								<label class="col-md-3 col-form-label"> Value</label>
+								<div class="col-md-9">
+									<input id="1_value" type="text" class="form-control"
+										placeholder="Value" />
+								</div>
+							</div>
+							<!-- Per Policy Master Add Ends Here-->
+							
+							<!-- Agent access/Late Add Starts Here -->
+							<!-- <div class="form-group row agentAccessLate">
+								<label class="col-md-3 col-form-label"> Agent Name</label>
+								<div class="col-md-9">
+									<input id="2_agentName" type="text" class="form-control"
+										placeholder="agentName" />
+								</div>
+							</div>
+							
+							<div class="form-group row agentAccessLate">
+								<label class="col-md-3 col-form-label"> Lead Access</label>
+								<div class="col-md-9">
+									<input id="2_leadAccess" type="text" class="form-control"
+										placeholder="Access Type" />
+								</div>
+							</div>
+							
+							<div class="form-group row agentAccessLate">
+								<label class="col-md-3 col-form-label"> Late Login</label>
+								<div class="col-md-9">
+									<input id="2_lateLogin" type="text" class="form-control"
+										placeholder="Late Login" />
+								</div>
+							</div>
+							
+							<div class="form-group row agentAccessLate">
+								<label class="col-md-3 col-form-label"> month</label>
+								<div class="col-md-9">
+									<input id="2_month" type="text" class="form-control"
+										placeholder="month" />
+								</div>
+							</div>
+							
+							<div class="form-group row agentAccessLate">
+								<label class="col-md-3 col-form-label"> Year</label>
+								<div class="col-md-9">
+									<input id="2_year" type="text" class="form-control"
+										placeholder="Year" />
+								</div>
+							</div> -->
+							
+							<!-- <div id="agentAccessLaterForm">
+								
+								<div class="form-group row agentAccessLate">
+								<div class="col-md-3">
+									<label class="col-form-label"> Agent Name</label>
+								</div>
+								<div class="col-md-2">
+									<label class="col-form-label"> Lead Access</label>
+								</div>
+								<div class="col-md-2">
+									<label class="col-form-label"> Late Login</label>
+								</div>
+								<div class="col-md-2">
+									<label class="col-form-label"> month/Year</label>
+								</div>
+								<div class="col-md-1">
+									<label class="col-form-label"> Add/Remove</label>
+								</div>
+								</div>
+								<div class="form-group row agentAccessLate">
+								<div class="col-md-3">
+									<input name="2_agentName_0" type="text" class="form-control agentAccessLate_0" placeholder="" />
+								</div>
+								<div class="col-md-2">
+									<input name="2_leadAccess_0" type="text" class="form-control agentAccessLate_0" placeholder="" />
+								</div>
+								<div class="col-md-2">
+									<input name="2_lateLogin_0" type="text" class="form-control agentAccessLate_0" placeholder="" />
+								</div>
+								<div class="col-md-2">
+									<input name="2_monthYear_0" type="text" class="form-control agentAccessLate_0" placeholder="" />
+								</div>
+								<div class="col-md-1">
+									<input type="button" value="+" class="add-row"/>
+								</div>
+								</div>
+							
+							</div> -->
+							
+							<!-- Agent access/Late Add Ends Here -->
+							
+							
+							
+							<!-- Agent Slab Master Add Starts Here-->
+							<div class="form-group row agentSlab">
+								<label class="col-md-3 col-form-label"> OD Min Slab</label>
+								<div class="col-md-9">
+									<input id="3_odMinSlab" type="text" class="form-control"
+										placeholder="OD Min Slab" />
+								</div>
+							</div>
+							
+							<div class="form-group row agentSlab">
+								<label class="col-md-3 col-form-label"> OD Max Slab</label>
+								<div class="col-md-9">
+									<input id="3_odMaxSlab" type="text" class="form-control"
+										placeholder="OD Max Slab" />
+								</div>
+							</div>
+							
+							<div class="form-group row agentSlab">
+								<label class="col-md-3 col-form-label"> PGQ Percentage</label>
+								<div class="col-md-9">
+									<input id="3_pgqPercentage" type="text" class="form-control"
+										placeholder="PGQ %" />
+								</div>
+							</div>
+							
+							<div class="form-group row agentSlab">
+								<label class="col-md-3 col-form-label"> WPI Percentage</label>
+								<div class="col-md-9">
+									<input id="3_wpiPercentage" type="text" class="form-control"
+										placeholder="WPI %" />
+								</div>
+							</div>
+							
+							<div class="form-group row agentSlab">
+								<label class="col-md-3 col-form-label"> WSI Percentage</label>
+								<div class="col-md-9">
+									<input id="3_wsiPercentage" type="text" class="form-control"
+										placeholder="WSI %" />
+								</div>
+							</div>
+							
+							<div class="form-group row agentSlab">
+								<label class="col-md-3 col-form-label"> INB Percentage</label>
+								<div class="col-md-9">
+									<input id="3_inbPercentage" type="text" class="form-control"
+										placeholder="INB %" />
+								</div>
+							</div>
+							
+							<!-- Agent Slab Add Ends Here -->
+							
+							<!-- In House TL Add Starts Here-->
+							<div class="form-group row inHouseTL">
+								<!-- <label class="col-md-3 col-form-label"> TL Name</label>
+								<div class="col-md-9">
+									<input id="4_tlName" type="text" class="form-control"
+										placeholder="TL Name" />
+								</div> -->
+							</div>
+							<!-- Agent Slab Add Ends Here -->
+							
+							<!-- TL Slab Master Add Starts Here-->
+							<!-- <div class="form-group row tlSlab">
+								<label class="col-md-3 col-form-label"> 70 to 85 %</label>
+								<div class="col-md-9">
+									<input id="5_70To85" type="text" class="form-control"
+										placeholder="70 to 85 %" />
+								</div>
+							</div>
+							<div class="form-group row tlSlab">
+								<label class="col-md-3 col-form-label"> 85 to 90 %</label>
+								<div class="col-md-9">
+									<input id="5_85To90" type="text" class="form-control"
+										placeholder="85 to 90 %" />
+								</div>
+							</div>
+							<div class="form-group row tlSlab">
+								<label class="col-md-3 col-form-label"> 90 to 95 %</label>
+								<div class="col-md-9">
+									<input id="5_90To95" type="text" class="form-control"
+										placeholder="90 to 95 %" />
+								</div>
+							</div>
+							<div class="form-group row tlSlab">
+								<label class="col-md-3 col-form-label"> 95 to 100 %</label>
+								<div class="col-md-9">
+									<input id="5_95To100" type="text" class="form-control"
+										placeholder="95 to 100 %" />
+								</div>
+							</div>
+							<div class="form-group row tlSlab">
+								<label class="col-md-3 col-form-label"> 100 AND ABOVE</label>
+								<div class="col-md-9">
+									<input id="5_100andAbove" type="text" class="form-control"
+										placeholder="100 AND ABOVE  %" />
+								</div>
+							</div> -->
+							<!-- TL slab Master Add Ends Here -->
+							
+							<!-- In House TL Slab Master Add Starts Here-->
+							<div class="form-group row inHouseTlSlab">
+								<label class="col-md-3 col-form-label"> OD Min Slab</label>
+								<div class="col-md-9">
+									<input id="6_odMinSlab" type="text" class="form-control"
+										placeholder="OD Min Slab" />
+								</div>
+							</div>
+							
+							<div class="form-group row inHouseTlSlab">
+								<label class="col-md-3 col-form-label"> OD Max Slab</label>
+								<div class="col-md-9">
+									<input id="6_odMaxSlab" type="text" class="form-control"
+										placeholder="OD Max Slab" />
+								</div>
+							</div>
+							
+							<div class="form-group row inHouseTlSlab">
+								<label class="col-md-3 col-form-label"> Target</label>
+								<div class="col-md-9">
+									<input id="6_target" type="text" class="form-control"
+										placeholder="Target" />
+								</div>
+							</div>
+							
+							<div class="form-group row inHouseTlSlab">
+								<label class="col-md-3 col-form-label"> Incentive Percentage</label>
+								<div class="col-md-9">
+									<input id="6_incentivePercentage" type="text" class="form-control"
+										placeholder="Incentive %" />
+								</div>
+							</div>
+							
+							<!-- In House TL slab Master Add Ends Here -->
+							
+							<!-- In House TL Add Starts Here-->
+							<!-- <div class="form-group row inHouseTL">
+								<label class="col-md-3 col-form-label"> TL Name</label>
+								<div class="col-md-9">
+									<input id="4_tlName" type="text" class="form-control"
+										placeholder="TL Name" />
+								</div>
+							</div> -->
+							<!-- Agent Slab Add Ends Here -->
+							
+							<!-- PL Slab Master Add Starts Here-->
+							<!-- <div class="form-group row plSlab">
+								<label class="col-md-3 col-form-label"> 70 to 85 %</label>
+								<div class="col-md-9">
+									<input id="7_70To85" type="text" class="form-control"
+										placeholder="70 to 85 %" />
+								</div>
+							</div>
+							<div class="form-group row plSlab">
+								<label class="col-md-3 col-form-label"> 85 to 90 %</label>
+								<div class="col-md-9">
+									<input id="7_85To90" type="text" class="form-control"
+										placeholder="85 to 90 %" />
+								</div>
+							</div>
+							<div class="form-group row plSlab">
+								<label class="col-md-3 col-form-label"> 90 to 95 %</label>
+								<div class="col-md-9">
+									<input id="7_90To95" type="text" class="form-control"
+										placeholder="90 to 95 %" />
+								</div>
+							</div>
+							<div class="form-group row plSlab">
+								<label class="col-md-3 col-form-label"> 95 to 100 %</label>
+								<div class="col-md-9">
+									<input id="7_95To100" type="text" class="form-control"
+										placeholder="95 to 100 %" />
+								</div>
+							</div>
+							<div class="form-group row plSlab">
+								<label class="col-md-3 col-form-label"> 100 AND ABOVE</label>
+								<div class="col-md-9">
+									<input id="7_100andAbove" type="text" class="form-control"
+										placeholder="100 AND ABOVE  %" />
+								</div>
+							</div> -->
+							<!-- PL slab Master Add Ends Here -->
+							
+							
+							
+								<!-- Lead Target Add Starts Here -->
+								
+									<!-- <div id="leadTargetForm">
+								
+								<div class="form-group row leadTarget">
+								<div class="col-md-3">
+									<label class="col-form-label"> Name</label>
+								</div>
+								<div class="col-md-2">
+									<label class="col-form-label"> Target</label>
+								</div>
+								<div class="col-md-2">
+									<label class="col-form-label"> month/Year</label>
+								</div>
+								<div class="col-md-2">
+									<label class="col-form-label"> Lead Type</label>
+								</div>
+								<div class="col-md-1">
+									<label class="col-form-label"> Add/Remove</label>
+								</div>
+								</div>
+								<div class="form-group row leadTarget">
+								<div class="col-md-3">
+									<input name="8_name_0" type="text" class="form-control leadTarget_0" placeholder="" />
+								</div>
+								<div class="col-md-2">
+									<input name="8_target_0" type="text" class="form-control leadTarget_0" placeholder="" />
+								</div>
+								<div class="col-md-2">
+									<input name="8_monthYear_0" type="text" class="form-control leadTarget_0" placeholder="" />
+								</div>
+								<div class="col-md-2">
+									<input name="2_leadType_0" type="text" class="form-control leadTarget_0" placeholder="" />
+								</div>
+								<div class="col-md-1">
+									<input type="button" value="+" class="add-row-leadTarget"/>
+								</div>
+								</div>
+							
+							</div> -->
+							
+							<!-- <div class="form-group row leadTarget">
+								<label class="col-md-3 col-form-label"> Name</label>
+								<div class="col-md-9">
+									<input id="8_name" type="text" class="form-control"
+										placeholder="Name" />
+								</div>
+							</div>
+							
+							<div class="form-group row leadTarget">
+								<label class="col-md-3 col-form-label"> Target</label>
+								<div class="col-md-9">
+									<input id="8_target" type="text" class="form-control"
+										placeholder="Target" />
+								</div>
+							</div>
+							
+							<div class="form-group row leadTarget">
+								<label class="col-md-3 col-form-label"> month</label>
+								<div class="col-md-9">
+									<input id="8_month" type="text" class="form-control"
+										placeholder="month" />
+								</div>
+							</div>
+							
+							<div class="form-group row leadTarget">
+								<label class="col-md-3 col-form-label"> Year</label>
+								<div class="col-md-9">
+									<input id="8_year" type="text" class="form-control"
+										placeholder="Year" />
+								</div>
+							</div>
+							
+							<div class="form-group row leadTarget">
+								<label class="col-md-3 col-form-label">Lead Type </label>
+								<div class="col-md-9">
+									<select id="8_leadType" name="select"
+										class="form-control" size="1">
+										<option value="0" >Select</option>
+										<option value="TL" >TL</option>
+										<option value="PL" >PL</option>
+									</select>
+								</div>
+							</div> -->
+							
+							<!-- Lead Target Add Ends Here -->
+							
+							<button id="buttonMasterInsert" type="button"
+								class="btn btn-block btn-success">Submit</button>
+							
+							
+							
+							<!-- <div class="form-group row">
+								<label class="col-md-3 col-form-label">Type</label>
+								<div class="col-md-9">
+									<select id="incecntiveType" name="select"
+										class="form-control" size="1">
+										<option value="AG" >Agent</option>
+										<option value="AG-2W" >Agent Two Wheeler</option>
+										<option value="TL" >Team Lead</option>
+										<option value="PL" >Process Lead</option>
+										<option value="MR" >Manager</option>
+									</select>
+								</div>
+							</div> -->
+
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-lg-14" style="width:100%">
+					<div class="card">
+						<div class="card-header">
+							<i class="fa fa-edit"></i> Details
+							<div class="card-actions">
+								<a href="#" class="btn-setting d-sm-down-none"><i
+									class="icon-settings"></i></a> <a href="#" class="btn-minimize"
+									data-toggle="collapse" data-target="#collapseExample"
+									aria-expanded="true"><i class="icon-arrow-up"></i></a> <a
+									href="#" class="btn-close"><i class="icon-close"></i></a>
+							</div>
+						</div>
+						<div class="card-body collapse show" id="collapseExample">
+							<!-- <div class="card-block">
+								Provides extra visual weight and identifies the primary action in a set of buttons
+								<button id="buttonApplicationConfigRefresh" type="button"
+									class="btn btn-primary">Refresh</button>
+								<button id="buttonApplicationConfigDelete" type="button"
+									class="btn btn-danger">Delete</button>
+								<button id="buttonApplicationConfigActivate" type="button"
+									class="btn btn-warning">Activate</button>
+							</div> -->
+							<!-- <button class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="example" type="button"><span>PDF</span></button> -->
+							<div class="card-body">
+							<div id='perPolicyTbl'  class="perPolicy">
+								<table id="tblPerPolicy"
+									class="table table-responsive-sm table-bordered table-striped table-sm">
+									<thead>
+										<tr>
+											<th data-field="id">Id</th>
+											<th data-field="name">Key</th>
+											<th data-field="searchslab">Value</th>
+											<th data-field="searchslab">Action</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div id='inHouseLeadsTbl' class="inHouseTL" >
+								<table id="tableInHouseLeads"
+									class="table table-responsive-sm table-bordered table-striped table-sm">
+									<thead>
+										<tr>
+											<th data-field="id">Id</th>
+											<th data-field="name">TL Name</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							
+							<div id='agentSlabTbl' class="agentSlab">
+									<table id="tableAgentSlab"
+										class="table table-responsive-sm table-bordered table-striped table-sm">
+										<thead>
+											<tr>
+												<th data-field="id">Id</th>
+												<th data-field="odmin">OD Min Slab</th>
+												<th data-field="odMax">OD Max Slab</th>
+												<th data-field="pgq">PGQ %</th>
+												<th data-field="wpi">WPI %</th>
+												<th data-field="wsi">WSI %</th>
+												<th data-field="inb">INB %</th>
+												<th data-field="inb">Action</th>
+											</tr>
+										</thead>
+									</table>
+							</div>
+							
+							<div id='tlSlabTbl' class="tlSlab">
+									<table id="tableTlSlab"
+										class="table table-responsive-sm table-bordered table-striped table-sm">
+										<thead>
+											<tr>
+												<th data-field="id">Id</th>
+												<!-- <th data-field="odmin">OD Min Slab</th>
+												<th data-field="odMax">OD Max Slab</th> -->
+												<th data-field="pgq">70 to 85 %</th>
+												<th data-field="wpi">85 to 90 %</th>
+												<th data-field="wsi">90 to 95 %</th>
+												<th data-field="inb">95 to 100 %</th>
+												<th data-field="inb">100 and Above %</th>
+												<th data-field="inb">Action</th>
+											</tr>
+										</thead>
+									</table>
+							</div>
+							
+							
+							<div id='plSlabTbl' class="plSlab">
+									<table id="tablePlSlab"
+										class="table table-responsive-sm table-bordered table-striped table-sm">
+										<thead>
+											<tr>
+												<th data-field="id">Id</th>
+												<!-- <th data-field="odmin">OD Min Slab</th>
+												<th data-field="odMax">OD Max Slab</th> -->
+												<th data-field="pgq">70 to 85 %</th>
+												<th data-field="wpi">85 to 90 %</th>
+												<th data-field="wsi">90 to 95 %</th>
+												<th data-field="inb">95 to 100 %</th>
+												<th data-field="inb">100 and Above %</th>
+												<th data-field="inb">Action</th>
+											</tr>
+										</thead>
+									</table>
+							</div>
+							
+							<div id='tlInHouseSlabTbl' class="inHouseTlSlab">
+									<table id="tableTlInHouseSlab"
+										class="table table-responsive-sm table-bordered table-striped table-sm">
+										<thead>
+											<tr>
+												<th data-field="id">Id</th>
+												<th data-field="odmin">OD Min Slab</th>
+												<th data-field="odMax">OD Max Slab</th>
+												<th data-field="target">Target</th>
+												<th data-field="inc">Incentive %</th>
+												<th data-field="inb">Action</th>
+											</tr>
+										</thead>
+									</table>
+							</div>
+							
+							<div id='agentAccessLateTbl' class="agentAccessLate" >
+									<table id="tableAgentAccessLate"
+										class="table table-responsive-sm table-bordered table-striped table-sm">
+										<thead>
+											<tr>
+												<th data-field="id">Id</th>
+												<th data-field="agentName">Agent Name</th>
+												<th data-field="leadAccess">Lead Access</th>
+												<th data-field="LL">Late Login</th>
+												<th data-field="mY">Month/Year</th>
+											</tr>
+										</thead>
+									</table>
+							</div>
+							
+							<div id='leadTargetTbl' class="leadTarget">
+									<table id="tableLeadTarget"
+										class="table table-responsive-sm table-bordered table-striped table-sm">
+										<thead>
+											<tr>
+												<th data-field="id">Id</th>
+												<th data-field="name">Name</th>
+												<th data-field="leadType">Lead Type</th>
+												<th data-field="t">Target</th>
+												<th data-field="M">Month</th>
+												<th data-field="Y">Year</th>
+											</tr>
+										</thead>
+									</table>
+							</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/.col-->
+				
+				
+				
+			</div>
+		</div>
+		</main>
+	</div>
+
+	<footer class="app-footer">
+		<span>Prodian Robo © 2017 Copyrights.</span> <span class="ml-auto">Powered
+			by <a href="http://prodian.co.in"><img src="img/bottom-logo.png"
+				class="img-avatar" /></a>
+		</span>
+	</footer>
+
+	<!-- Bootstrap and necessary plugins -->
+	<script src="vendors/js/jquery.min.js"></script>
+	<script src="vendors/js/popper.min.js"></script>
+	<script src="vendors/js/bootstrap.min.js"></script>
+	<script src="vendors/js/pace.min.js"></script>
+
+	<!-- Plugins and scripts required by all views -->
+	<script src="vendors/js/Chart.min.js"></script>
+
+	<!-- main scripts -->
+	<script src="js/app.js"></script>
+
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="js/bootstrap/js/bootstrap.js"></script>
+	<script src="js/bootstrap/js/moment.js"></script>
+	<script src="js/bootstrap/js/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="js/dt/datatables.min.js"></script>
+	<!-- <script src="jsRocket/bootstrapSpringGrid.js" type="text/javascript"></script> -->
+	<script src="jsRocket/agentIncentive.js" type="text/javascript"></script>
+
+	<script type="text/javascript"
+		src="js/dt/export/jquery.dataTables.min.js"></script>
+	<script type="text/javascript"
+		src="js/dt/export/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="js/dt/export/jszip.min.js"></script>
+	<script type="text/javascript" src="js/dt/export/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="js/dt/export/pdfmake.min.js"></script>
+	<script type="text/javascript" src="js/dt/export/vfs_fonts.js"></script>
+	<script type="text/javascript" src="js/toastr.min.js"></script>
+	<script src="js/common.js"></script>
+</body>
+
+<div class="modal fade" id="perPolicyModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-info" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Per Policy</h4>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<span class="input-group-addon"><i class="icon-user"></i></span>
+										<input id="key_edit" type="text" class="form-control"
+											placeholder="key" readonly="true" />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<span class="input-group-addon">@</span> <input
+											id="value_edit" type="text" class="form-control"
+											placeholder="value" />
+									</div>
+								</div>
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" id="perPolicyUpdate">Update</button>
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="agentSlabModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-info" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Agent Slab</h4>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> ODMinSlab</label>
+										<input id="agentSlabOdMin_edit" type="text" class="form-control"
+											placeholder="" readonly="true" />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> ODMaxSlab</label>
+										 <input
+											id="agentSlabOdMax_edit" type="text" class="form-control"
+											placeholder="" readonly="true" />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> PGQ %</label>
+										<input id="agentSlabPQG_edit" type="text" class="form-control"
+											placeholder=""  />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> WPI %</label>
+										 <input
+											id="agentSlabWPI_edit" type="text" class="form-control"
+											placeholder="" />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> WSI %</label>
+										<input id="agentSlabWSI_edit" type="text" class="form-control"
+											placeholder=""  />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> INB %</label>
+										 <input
+											id="agentSlabINB_edit" type="text" class="form-control"
+											placeholder="" />
+									</div>
+								</div>
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" id="agentSlabUpdate">Update</button>
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="tlSlabModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-info" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">TL Slab</h4>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> 70 to 85%</label>
+										<input id="70to85_edit" type="text" class="form-control"
+											placeholder=""  />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> 85 to 90%</label>
+										 <input
+											id="85to90_edit" type="text" class="form-control"
+											placeholder=""  />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> 90 to 95%</label>
+										<input id="90to95_edit" type="text" class="form-control"
+											placeholder=""  />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> 95 to 100%</label>
+										 <input
+											id="95to100_edit" type="text" class="form-control"
+											placeholder="" />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> 100 and Above%</label>
+										<input id="100AndAbove_edit" type="text" class="form-control"
+											placeholder=""  />	
+											<input type='hidden' id="tlSlabId" value="0" />
+									</div>
+								</div>
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" id="tlSlabUpdate">Update</button>
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="inHouseTlSlabModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-info" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">In House TL Slab</h4>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> OdMinSlab</label>
+										<input id="inHouseTlodMin_edit" type="text" class="form-control"
+											placeholder=""  />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> OdMaxSlab</label>
+										 <input
+											id="inHouseTlodMax_edit" type="text" class="form-control"
+											placeholder=""  />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> Target</label>
+										<input id="inHouseTarget_edit" type="text" class="form-control"
+											placeholder=""  />
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="input-group m-b-1">
+										<label class="col-md-3 col-form-label"> Incnetive %</label>
+										 <input
+											id="inHouseTlIncentivePerc_edit" type="text" class="form-control"
+											placeholder="" />
+											<input type='hidden' id="inHouseTlSlabId" value="0" />
+									</div>
+								</div>
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" id="inHouseTlSlabUpdate">Update</button>
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+</div>
+
+</html>

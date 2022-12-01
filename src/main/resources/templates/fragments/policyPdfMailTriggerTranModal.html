@@ -1,0 +1,152 @@
+<div th:fragment="policyPdfMailTriggerTranModal">
+<div class="modal fade" id="policyPdfMailTriggerTranModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-info" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Transaction Results</h4>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+								<div class="card-header">
+									Transaction Details <small> <code> . Transaction
+											ID: </code>
+									</small>
+								</div>
+								<input id="policyPdfMailTrigger_transactionId" type="text" class="form-control"
+									placeholder="-" />
+								<div class="card-body">
+									<form action="" method="post" class="form-horizontal">
+										<div class="form-group row">
+											<div class="col-5">
+												<input type="text"
+													class="form-control" placeholder="File Name:" />
+											</div>
+											<div class="col-7">
+												<input id="policyPdfMailTrigger_fileName" type="text" class="form-control" placeholder="-"  readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col-5">
+												<input type="text" class="form-control"
+													placeholder="Transaction Status:" />
+											</div>
+											<div class="col-7">
+												<input id="policyPdfMailTrigger_transactionStatus" type="text"
+													class="form-control" placeholder="-"  readonly="readonly"/>
+											</div>
+										</div>
+										
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="File Path" />
+											</div>
+											<div class="col-7">
+												<input id="policyPdfMailTrigger_filePath" type="text"
+													class="form-control" placeholder="-"  readonly="readonly"/>
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Is Excel Created" />
+											</div>
+											<div class="col-7">
+												<input id="policyPdfMailTrigger_isExcelCreated" type="text"
+													class="form-control" placeholder="-"  readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Is Excel Uploaded" />
+											</div>
+											<div class="col-7">
+												<input id="policyPdfMailTrigger_isExcelUploaded" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Quote Count" />
+											</div>
+											<div class="col-7">
+												<input id="policyPdfMailTrigger_quoteCount" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										
+										
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Process Phase" />
+											</div>
+											<div class="col-7">
+												<input id="policyPdfMailTrigger_processPhase" type="text"
+													class="form-control" placeholder="-"  readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Process Status" />
+											</div>
+											<div class="col-7">
+												<input id="policyPdfMailTrigger_processStatus" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										<div class="form-group row processGLStatus">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Failure Reason" />
+											</div>
+											<div class="col-7">
+												<input id="policyPdfMailTrigger_processFaliureReason" type="text"
+													class="form-control" placeholder="-" readonly="readonly" />
+											</div>
+										</div>
+										
+										<div class="form-group row processGLStatus">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Exception log" />
+											</div>
+											<div class="col-7">
+												<textarea id="policyPdfMailTrigger_exceptionLog" 
+													class="form-control"  ></textarea>
+											</div>
+										</div>
+										
+										<input id="glSuccessFilePath" type="hidden" class="form-control"
+							placeholder="-" /> <input id="glErrorFilePath" type="hidden"
+							class="form-control" placeholder="-" /> 
+									</form>
+								</div>
+								<!-- <div class="card-footer">
+									<button type="button"  id="glErrorFileDownload"  class="btn btn-sm btn-danger">Download
+										Error File</button>
+									<button type="button" id="glSuccessFileDownload" class="btn btn-sm btn-primary">Download
+										Success File</button>
+										<a id="hiddenAnchor" target="_blank"></a>
+								</div> -->
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Close</button>
+									
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+			</div>

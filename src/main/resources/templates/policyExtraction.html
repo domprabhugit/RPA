@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="Prodian Robo - Business Process" />
+<meta name="author" content="Dominic D Prabhu" />
+<meta name="keyword"
+	content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js" />
+<link rel="shortcut icon" href="img/favicon.png" />
+<title>Prodian Robo - Business Processes</title>
+
+<!-- Icons -->
+<link href="vendors/css/font-awesome.min.css" rel="stylesheet" />
+<link href="vendors/css/simple-line-icons.min.css" rel="stylesheet" />
+
+<!-- Main styles for this application -->
+<link href="css/style.css" rel="stylesheet" />
+<link href="css/toastr.min.css" rel="stylesheet" />
+
+<link rel="stylesheet"
+	href="css/bootstrap-datepicker/datepicker.min.css" />
+<link rel="stylesheet"
+	href="js/bootstrap/css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="css/dt/datatables.min.css" />
+
+<!-- Styles required by this views -->
+
+</head>
+
+<body
+	class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+	<header class="app-header navbar">
+		<button
+			class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto"
+			type="button">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="#"></a>
+		<button class="navbar-toggler sidebar-toggler d-md-down-none"
+			type="button">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<ul class="nav navbar-nav d-md-down-none">
+			<li class="nav-item px-3"><a class="nav-link"
+				th:href="@{/dashboard}">Dashboard</a></li>
+			<li class="nav-item px-3"><a class="nav-link"
+				th:href="@{/users}">Users</a></li>
+			<li class="nav-item px-3"><a class="nav-link" href="#">Settings</a>
+			</li>
+		</ul>
+		<ul class="nav navbar-nav ml-auto">
+			<li class="nav-item d-md-down-none"><a class="nav-link" href="#"><i
+					class="icon-bell"></i><span class="badge badge-pill badge-danger">0</span></a>
+			</li>
+			<li class="nav-item d-md-down-none"><a class="nav-link" href="#"><i
+					class="icon-list"></i></a></li>
+			<li class="nav-item d-md-down-none"><a class="nav-link" href="#"><i
+					class="icon-location-pin"></i></a></li>
+			<li class="nav-item dropdown"><a class="nav-link"
+				data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+				aria-expanded="false"> <img src="img/avatars/6.jpg"
+					class="img-avatar" alt="http://prodian.co.in" />
+			</a>
+				<div class="dropdown-menu dropdown-menu-right">
+					<div class="dropdown-header text-center">
+						<strong>Account</strong>
+					</div>
+					<a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i>
+						Updates<span class="badge badge-info">0</span></a>
+					<div class="dropdown-header text-center">
+						<strong>Settings</strong>
+					</div>
+					<a class="dropdown-item" href="#"><i class="fa fa-user"></i>
+						Profile</a> <a class="dropdown-item" href="#"><i
+						class="fa fa-wrench"></i> Settings</a>
+					<div class="divider"></div>
+					<a class="dropdown-item" th:href="@{/users}"><i
+						class="fa fa-shield"></i> Users</a> <a class="dropdown-item"
+						th:href="@{/logout}"><i class="fa fa-lock"></i> Logout</a>
+				</div></li>
+		</ul>
+		<button class="navbar-toggler aside-menu-toggler" type="button">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+	</header>
+	<div id="pageLoader" style="display: none;"></div>
+	<div class="app-body">
+		<div class="sidebar">
+			<nav class="sidebar-nav">
+				<ul class="nav">
+					<li class="nav-title">Dashboard</li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/dashboard}"><i class="icon-speedometer"></i>
+							Dashboard <span class="badge badge-primary">NEW</span></a></li>
+
+					<li class="nav-title">Robo UI</li>
+					<li class="nav-item nav-dropdown"><a
+						class="nav-link nav-dropdown-toggle" href="#"><i
+							class="icon-settings"></i>Actions</a>
+						<ul class="nav-dropdown-items">
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/businessprocess}"><i
+									class="fa fa-gears fa-lg mt-4"></i>Transaction Details</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/emailconfig}"><i
+									class="fa fa-envelope-open fa-lg mt-4"></i>Email Configuration</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/applicationConfig}"><i
+									class="fa icon-globe fa-lg mt-4"></i>Application Configuration</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/folderConfig}"><i
+									class="fa fa-folder-open fa-lg mt-4"></i>Folder Configuration</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/policyExtraction}"><i
+									class="fa fa-download fa-lg mt-4"></i>Policy Extraction</a></li>
+									<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/firstgenPolicyExtraction}"><i
+									class="fa fa-download fa-lg mt-4"></i>XGEN Policy Extraction</a></li>
+							<li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/fileupload}"><i class="fa fa-file fa-lg mt-4"></i>File
+									Upload</a></li>
+						</ul></li>
+					<li class="nav-item"><a class="nav-link nav-link-danger"
+						th:href="${@environment.getProperty('control.tower.hawtio.URL')}" target="_top"><i
+							class="icon-layers"></i>Control Tower</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<!-- Main content -->
+		<main class="main"> <!-- Breadcrumb -->
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">Home</li>
+			<li class="breadcrumb-item">Admin</li>
+			<li class="breadcrumb-item active">Policy Extraction</li>
+
+			<!-- Breadcrumb Menu-->
+			<li class="breadcrumb-menu d-md-down-none">
+				<div class="btn-group" role="group" aria-label="Button group">
+					<a class="btn" href="#"><i class="icon-speech"></i></a> <a
+						class="btn" th:href="@{/dashboard}"><i class="icon-graph"></i>
+						&nbsp;Dashboard</a> <a class="btn" href="#"><i
+						class="icon-settings"></i> &nbsp;Settings</a>
+				</div>
+			</li>
+		</ol>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card">
+						<div class="card-header">
+							<i class="fa fa-edit"></i>View Results
+							<div class="card-actions">
+								<a href="#" class="btn-setting d-sm-down-none"><i
+									class="icon-settings"></i></a> <a href="#" class="btn-minimize"
+									data-toggle="collapse" data-target="#collapseExample"
+									aria-expanded="true"><i class="icon-arrow-up"></i></a> <a
+									href="#" class="btn-close"><i class="icon-close"></i></a>
+							</div>
+						</div>
+						<div class="card-body collapse show" id="collapseExample">
+						
+						<div class="col-sm-12">
+								<div class="form-group">
+									<label class="col-md-3 col-form-label" for="select1">Status Type</label>
+									<select id="omniStatusType" name="omniStatusType" class="form-control">
+										<option value="1">Date wise detailed status</option>
+										<option value="2">Year wise count</option>
+										<option value="3">Month wise count</option>
+										<option value="4">Date wise count</option>
+									</select>
+								</div>
+						</div>
+						
+						<div class="col-sm-12 omniStatusYear" style="display:none;">
+								<div class="form-group">
+									<label class="col-md-3 col-form-label" for="select1">Year</label>
+									<select id="omniStatusYear" name="omniStatusYear" class="form-control">
+									</select>
+								</div>
+						</div>
+						
+						<div class="col-sm-12 omniStatusMonth" style="display:none;">
+								<div class="form-group">
+									<label class="col-md-3 col-form-label" for="select1">Month</label>
+									<select id="omniStatusMonth" name="omniStatusMonth" class="form-control">
+									</select>
+								</div>
+						</div>
+						
+						<div class="col-sm-12 omniStatusDate" style="display:none;" >
+								<div class="form-group">
+									<label for="name">Policy Date:</label> <input id="omniStatusDate"
+										type="text" class="form-control" placeholder="dd/MM/yyyy" />
+								</div>
+						</div>
+							
+							<div class="col-sm-12 omniDateWiseStatus">
+								<div class="form-group">
+									<label for="name">Policy Start Date:</label> <input id="startDateCarPolicy"
+										type="text" class="form-control" placeholder="dd/MM/yyyy" />
+
+								</div>
+
+							</div>
+							<div class="col-sm-12 omniDateWiseStatus">
+								<div class="form-group" id="endDate1">
+									<label for="name">Policy End Date:</label> <input id="endDateCarPolicy"
+										type="text" class="form-control" placeholder="dd/MM/yyyy" />
+								</div>
+
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label class="col-md-3 col-form-label" for="select1">CAR Type</label>
+									<!-- <select id="carType" name="carType" class="form-control">
+										<option th:each="item :${carTypeList}"
+											th:value="${{item}}"
+											th:text="${item}"></option>
+									</select> -->
+									<select id="carType" name="carType" class="form-control">
+										<option value="MAR" >MARUTI</option>
+										<option value="HON" >HONDA</option>
+										<option value="FRD" >FORD</option>
+										<option value="TAT" >TATA</option>
+										<option value="ABL" >ABIBL</option>
+										<option value="MBL" >MIBL</option>
+										<option value="VOL" >VOLVO</option>
+										<option value="TAF" >TAFE</option>
+										<option value="PIA" >PIAGGIO</option>
+										<option value="FGN" >FIRSTGEN_DOWNLOAD</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="card-block">
+								<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+								<button id="carExtractionButtonFilter" type="button" class="btn btn-primary">Filter</button>
+							</div>
+							<div class="card-body omniDateWiseStatus" style="overflow-x: scroll">
+							<input type='hidden' id="marutiDmsCheckHostDetails" th:value="${marutiDmsCheckHostDetails}" />
+								<table id="carPolicytableTransaction"
+									class="table table-responsive-sm table-bordered table-striped table-sm">
+									<thead>
+										<tr>
+											<th data-field="policyDate">Policy Date</th>
+											<th data-field="policyNo">Policy No</th>
+											<th data-field="policyPdf">Policy PDF</th>
+											<th data-field="proposalCode">Proposal Code</th>
+											<th data-field="proposalPdf">Proposal PDF</th>
+											<th data-field="inwardCode">Inward code</th>
+											<th data-field="uploadReference">Upload Reference</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+				<div class="omniStatusDiv" style="display:none;">	
+							<div class="card-header">
+								Extraction/Upload Status   <b><span id ="extractionStatusDate"></span></b>
+							</div>
+							<div class="card-body">
+						<!-- 	<div class="form-group row hideDiv">
+								<div class="col-5">
+									<input id="marutiPolicyExtraction_monthYear" type="text" class="form-control"
+											placeholder="MM/YYYY" />
+								</div>
+								<div class="col-7">
+									<select id="statusSelection" class="form-control form-control-md"><option value="">Select Status Type</option><option value="P">Pending</option><option value="C" >Completed</option></select>
+									</div>
+							</div>
+							<div class="form-group row hideDiv">
+									<div class="col-5">
+										<select id="marutiPolicyDateList" name="select1" class="form-control form-control-md" required="">
+				                          <option value="0">Please select Date</option>
+				                        </select>
+		                       		 </div>
+		                       		 <div class="col-7">
+								<button type="button" id="getMarutiDailyStatus" class="btn btn-sm btn-primary">Get Extraction Status</button>
+								</div>
+							</div> -->
+							<!-- <div class="form-group row hideDiv">
+								<div class="col-5">
+									<input id="marutiPolicyExtraction_statusDate" type="text" class="form-control"
+											placeholder="MM/DD/YYYY" />
+								</div>
+								<div class="col-7">
+								<button type="button" id="getMarutiDailyStatus" class="btn btn-sm btn-primary">Get Extraction Status</button>
+								</div>
+							</div> -->
+								<div class="form-group row hideDiv">
+									<div class="col-5">
+										<input type="text" class="form-control"
+											placeholder="Total Policies:" />
+									</div>
+									<div class="col-7">
+										<input id="marutiPolicyExtraction_TotalPolicies" type="text" class="form-control"
+											placeholder="-" readonly="readonly"/>
+									</div>
+								</div>
+								<div class="form-group row hideDiv">
+									<div class="col-5">
+										<input type="text" class="form-control"
+											placeholder="Total Policy pdf extracted:" />
+									</div>
+									<div class="col-7">
+										<input id="marutiPolicyExtraction_TotalPolicyPdfExtracted" type="text" class="form-control"
+											placeholder="-" readonly="readonly" />
+									</div>
+								</div>
+								<div class="form-group row hideDiv">
+									<div class="col-5">
+										<input type="text" class="form-control"
+											placeholder="Total Proposal pdf extracted:" />
+									</div>
+									<div class="col-7">
+										<input id="marutiPolicyExtraction_TotalProposalPdfExtracted" type="text" class="form-control"
+											placeholder="-" readonly="readonly" />
+									</div>
+								</div>
+								
+								<!-- <div class="form-group row hideDiv">
+									<div class="col-5">
+										<input type="text" class="form-control"
+											placeholder="Error in Policy Extraction:" />
+									</div>
+									<div class="col-7">
+										<input id="marutiPolicyExtraction_TotalPolicyPdfUnExtracted" type="text" class="form-control"
+											placeholder="-" readonly="readonly" />
+									</div>
+								</div>
+								
+								<div class="form-group row hideDiv">
+									<div class="col-5">
+										<input type="text" class="form-control"
+											placeholder="Error in Proposal Extraction:" />
+									</div>
+									<div class="col-7">
+										<input id="marutiPolicyExtraction_TotalProposalPdfUnExtracted" type="text" class="form-control"
+											placeholder="-" readonly="readonly" />
+									</div>
+								</div> -->
+								
+								<div class="form-group row hideDiv">
+									<div class="col-5">
+										<input type="text" class="form-control"
+											placeholder="Total Policy pdf Uploaded:" />
+									</div>
+									<div class="col-7">
+										<input id="marutiPolicyExtraction_TotalPolicyPdfUploaded" type="text" class="form-control"
+											placeholder="-" readonly="readonly" />
+									</div>
+								</div>
+								
+								<div class="form-group row hideDiv">
+									<div class="col-5">
+										<input type="text" class="form-control"
+											placeholder="Total Proposal pdf Uploaded:" />
+									</div>
+									<div class="col-7">
+										<input id="marutiPolicyExtraction_TotalProposalPdfUploaded" type="text" class="form-control"
+											placeholder="-" readonly="readonly" />
+									</div>
+								</div>
+							</div>
+				</div>	
+						</div>
+					</div>
+				</div>
+				<!--/.col-->
+			</div>
+			<!--/.row-->
+			
+		</div>
+		</main>
+	</div>
+	
+		<div class="modal fade" id="uploadReferenceModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-info" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Upload Reference</h4>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>
+				<!-- <div class="card-header">
+					Transaction Details <small> <code> . Transaction ID:
+						</code>
+					</small>
+				</div>
+				<input id="marutiPolicyExtraction_transactionId" type="text" class="form-control"
+					placeholder="-" /> -->
+				<div class="card-body">
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Uploaded time:" />
+							</div>
+							<div class="col-7">
+								<input id="uploadTime" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Request:" />
+							</div>
+							<div class="col-7">
+							<textarea id="requestXml" 
+													class="form-control"  ></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Response:" />
+							</div>
+							
+							<div class="col-7">
+							<textarea id="responseXml" 
+													class="form-control"  ></textarea>
+							</div>
+						</div>
+						
+				</div>
+				
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+	<footer class="app-footer">
+		<span>Prodian Robo © 2017 Copyrights.</span> <span class="ml-auto">Powered
+			by <a href="http://prodian.co.in"><img src="img/bottom-logo.png"
+				class="img-avatar" /></a>
+		</span>
+	</footer>
+
+	<!-- Bootstrap and necessary plugins -->
+	<script src="vendors/js/jquery.min.js"></script>
+	<script src="vendors/js/popper.min.js"></script>
+	<script src="vendors/js/bootstrap.min.js"></script>
+	<script src="vendors/js/pace.min.js"></script>
+
+	<!-- Plugins and scripts required by all views -->
+	<script src="vendors/js/Chart.min.js"></script>
+
+	<!-- main scripts -->
+	<script src="js/app.js"></script>
+	<!-- <script src="js/download.js"></script>
+ -->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="js/bootstrap/js/bootstrap.js"></script>
+	<script src="js/bootstrap/js/moment.js"></script>
+	<script src="js/bootstrap/js/transition.js"></script>
+	<script src="js/bootstrap/js/collapse.js"></script>
+	<script src="js/bootstrap/js/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="js/dt/datatables.min.js"></script>
+	<script src="jsRocket/bootstrapSpringGrid.js" type="text/javascript"></script>
+
+	<script type="text/javascript"
+		src="js/dt/export/jquery.dataTables.min.js"></script>
+	<script type="text/javascript"
+		src="js/dt/export/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="js/dt/export/jszip.min.js"></script>
+	<script type="text/javascript" src="js/dt/export/pdfmake.min.js"></script>
+	<script type="text/javascript" src="js/dt/export/vfs_fonts.js"></script>
+	<script type="text/javascript" src="js/dt/export/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="js/toastr.min.js"></script>
+	<script src="js/common.js"></script>
+</body>
+</html>

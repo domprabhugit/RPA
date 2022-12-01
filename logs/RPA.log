@@ -1,0 +1,46 @@
+2022-10-20 16:01:47,726 819  [main] INFO  com.rpa.util.UtilityFile - getCodeBasePath::/D:/clients/Royalsundaram/source/GIT/RS-RPA/target/classes/
+2022-10-20 16:01:47,732 825  [main] INFO  com.rpa.util.UtilityFile - FINAL getCodeBasePath::/D:/clients/Royalsundaram/source/GIT/RS-RPA
+2022-10-20 16:01:49,124 2217 [main] INFO  com.rpa.Application - Starting Application on DESKTOP-8968NGM with PID 16872 (D:\clients\Royalsundaram\source\GIT\RS-RPA\target\classes started by CSS in D:\clients\Royalsundaram\source\GIT\RS-RPA)
+2022-10-20 16:01:49,125 2218 [main] INFO  com.rpa.Application - The following profiles are active: prod
+2022-10-20 16:01:49,785 2878 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2022-10-20 16:01:49,794 2887 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6b8ca3c8: startup date [Thu Oct 20 16:01:49 IST 2022]; root of context hierarchy
+2022-10-20 16:01:57,744 10837 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'typeConverter' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=camelAutoConfiguration; factoryMethodName=typeConverter; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/rpa/camel/config/CamelAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.apache.camel.spring.boot.TypeConversionConfiguration; factoryMethodName=typeConverter; initMethodName=null; destroyMethodName=; defined in class path resource [org/apache/camel/spring/boot/TypeConversionConfiguration.class]]
+2022-10-20 16:01:58,335 11428 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Generic.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]]
+2022-10-20 16:01:59,237 12330 [main] WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ExternalConfiguration.propertySourcesPlaceholderConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2022-10-20 16:01:59,264 12357 [main] INFO  com.rpa.util.UtilityFile - getCodeBasePath::/D:/clients/Royalsundaram/source/GIT/RS-RPA/target/classes/
+2022-10-20 16:01:59,265 12358 [main] INFO  com.rpa.util.UtilityFile - FINAL getCodeBasePath::/D:/clients/Royalsundaram/source/GIT/RS-RPA
+2022-10-20 16:01:59,406 12499 [main] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2022-10-20 16:01:59,647 12740 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b4645423] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-20 16:01:59,772 12865 [main] INFO  o.s.w.s.a.s.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-10-20 16:01:59,853 12946 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fcc8f24] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-20 16:01:59,914 13007 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.apache.camel.spring.boot.CamelAutoConfiguration' of type [org.apache.camel.spring.boot.CamelAutoConfiguration$$EnhancerBySpringCGLIB$$31f65543] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-20 16:02:00,825 13918 [main] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start embedded container; nested exception is java.lang.NoSuchMethodError: org.eclipse.jetty.server.AbstractConnector: method <init>()V not found
+2022-10-20 16:02:00,835 13928 [main] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2022-10-20 16:02:00,843 13936 [main] ERROR o.s.boot.SpringApplication - Application startup failed
+org.springframework.context.ApplicationContextException: Unable to start embedded container; nested exception is java.lang.NoSuchMethodError: org.eclipse.jetty.server.AbstractConnector: method <init>()V not found
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.onRefresh(EmbeddedWebApplicationContext.java:137)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:537)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.rpa.Application.main(Application.java:50)
+Caused by: java.lang.NoSuchMethodError: org.eclipse.jetty.server.AbstractConnector: method <init>()V not found
+	at org.eclipse.jetty.server.nio.AbstractNIOConnector.<init>(AbstractNIOConnector.java:30)
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.<init>(SelectChannelConnector.java:82)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at java.lang.Class.newInstance(Class.java:442)
+	at org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory$Jetty8ConnectorFactory.createConnector(JettyEmbeddedServletContainerFactory.java:894)
+	at org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory.createConnector(JettyEmbeddedServletContainerFactory.java:207)
+	at org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory.createServer(JettyEmbeddedServletContainerFactory.java:201)
+	at org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory.getEmbeddedServletContainer(JettyEmbeddedServletContainerFactory.java:173)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.createEmbeddedServletContainer(EmbeddedWebApplicationContext.java:164)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.onRefresh(EmbeddedWebApplicationContext.java:134)
+	... 8 common frames omitted

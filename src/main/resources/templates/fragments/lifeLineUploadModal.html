@@ -1,0 +1,183 @@
+<div th:fragment="lifeLineUploadModal">
+<div class="modal fade" id="uploadTranModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-info" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Transaction Results</h4>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>
+				<div class="card-header">
+					Transaction Details <small> <code> . Transaction ID:
+						</code>
+					</small>
+				</div>
+				<input id="liflineUpload_transactionId" type="text" class="form-control"
+					placeholder="-" />
+				<div class="card-body">
+					<form action="" method="post" class="form-horizontal">
+						<!-- <div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="External Tran No:" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_externalTransactionRefNo" type="text"
+									class="form-control" placeholder="-" readonly="readonly" />
+							</div>
+						</div> -->
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Transaction Status:" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_transactionStatus" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Phase" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_processPhase" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Status" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_processStatus" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<!-- <div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Success Reason" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_processSuccessReason" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Failure Reason" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_processFailureReason" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div> -->
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Total Validated Records:" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_totalValidatedRecords" type="text" class="form-control"
+									placeholder="-" readonly="readonly"/>
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Validation Success Records:" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_totalValidationSuccessRecords" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Validation Error Records:" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_totalValidationErrorRecords" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Total Records:" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_totalRecords" type="text" class="form-control"
+									placeholder="-" readonly="readonly"/>
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Success Records:" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_totalSuccessRecords" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Error Records:" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_totalErrorRecords" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Upload Id:" />
+							</div>
+							<div class="col-7">
+								<input id="liflineUpload_uploadId" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<input id="liflineUpload_successFilePath" type="hidden" class="form-control"
+							placeholder="-" /> <input id="liflineUpload_errorFilePath" type="hidden"
+							class="form-control" placeholder="-" /> <input
+							id="uploadFilePath" type="hidden" class="form-control"
+							placeholder="-" /><input
+							id="liflineUpload_logFilePath" type="hidden" class="form-control"
+							placeholder="-" />
+					</form>
+				</div>
+				<div class="card-footer">
+				<button type="button" id="liflineUpload_successFileDownload"
+						class="btn btn-sm btn-primary">Download uploaded File</button>
+					<button type="button" id="liflineUpload_errorFileDownload"
+						class="btn btn-sm btn-danger">Download Error File</button>
+					<button type="button" id="liflineUpload_logFileDownload"
+						class="btn btn-sm btn-success">Download Log File</button>
+					<a id="liflineUpload_hiddenAnchor" target="_blank"></a>
+				</div>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+</div>
+

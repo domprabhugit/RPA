@@ -1,0 +1,112 @@
+
+
+<div th:fragment="marutiPolicyExtractionModal">
+<div class="modal fade" id="marutiPolicyExtractionTranModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-info" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Transaction Results</h4>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>
+				<div class="card-header">
+					Transaction Details <small> <code> . Transaction ID:
+						</code>
+					</small>
+				</div>
+				<input id="marutiPolicyExtraction_transactionId" type="text" class="form-control"
+					placeholder="-" />
+				<div class="card-body">
+					<form action="" method="post" class="form-horizontal">
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Transaction Status:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_transactionStatus" type="text" class="form-control"
+									placeholder="-" readonly="readonly" /> 
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Phase" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_processPhase" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Process Status" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_processStatus" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Policies taken for extraction:" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_PoliciedTaken" type="text" class="form-control"
+									placeholder="-" readonly="readonly"/>
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Policy pdf extracted" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_PolicyPdfExtracted" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						<div class="form-group row hideDiv">
+							<div class="col-5">
+								<input type="text" class="form-control"
+									placeholder="Proposal pdf extracted" />
+							</div>
+							<div class="col-7">
+								<input id="marutiPolicyExtraction_ProposalPdfExtracted" type="text" class="form-control"
+									placeholder="-" readonly="readonly" />
+							</div>
+						</div>
+						
+						<div class="form-group row hideDiv">
+											<div class="col-5">
+											<input  type="text"
+													class="form-control" placeholder="Exception log" />
+											</div>
+											<div class="col-7">
+												<textarea id="marutiPolicyExtraction_exceptionLog" 
+													class="form-control"  ></textarea>
+											</div>
+										</div>
+						
+					</form>
+				</div>
+				
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+</div>
+

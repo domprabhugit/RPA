@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content="Prodian Robo - File Upload"/>
+  <meta name="author" content="Dominic D Prabhu"/>
+  <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js"/>
+  <link rel="shortcut icon" href="img/favicon.png"/>
+  <title>Prodian Robo - File Upload</title>
+
+  <!-- Icons -->
+  <link href="vendors/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="vendors/css/simple-line-icons.min.css" rel="stylesheet"/>
+
+  <!-- Main styles for this application -->
+  <link href="css/style.css" rel="stylesheet"/>
+  
+  <!-- Styles required by this views -->
+
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+  <header class="app-header navbar">
+    <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="nav navbar-nav d-md-down-none">
+      <li class="nav-item px-3">
+        <a class="nav-link" th:href="@{/dashboard}">Dashboard</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" th:href="@{/users}">Users</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="#">Settings</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item d-md-down-none">
+        <a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">0</span></a>
+      </li>
+      <li class="nav-item d-md-down-none">
+        <a class="nav-link" href="#"><i class="icon-list"></i></a>
+      </li>
+      <li class="nav-item d-md-down-none">
+        <a class="nav-link" href="#"><i class="icon-location-pin"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <img src="img/avatars/6.jpg" class="img-avatar" alt="http://prodian.co.in"/>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <div class="dropdown-header text-center">
+            <strong>Account</strong>
+          </div>
+          <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">0</span></a>
+          <div class="dropdown-header text-center">
+            <strong>Settings</strong>
+          </div>
+          <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Settings</a>
+          <div class="divider"></div>
+          <a class="dropdown-item" th:href="@{/users}"><i class="fa fa-shield"></i> Users</a>
+          <a class="dropdown-item" th:href="@{/logout}"><i class="fa fa-lock"></i> Logout</a>
+        </div>
+      </li>
+    </ul>
+    <button class="navbar-toggler aside-menu-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </header>
+
+  <div class="app-body">
+    <div class="sidebar">
+      <nav class="sidebar-nav">
+        <ul class="nav">
+          <li class="nav-title">
+            Dashboard
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/dashboard}"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
+          </li>
+
+          <li class="nav-title">
+            Robo UI
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-settings"></i>Actions</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/businessprocess}"><i class="fa fa-gears fa-lg mt-4"></i>Transaction Details</a>  
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/emailconfig}"><i class="fa fa-envelope-open fa-lg mt-4"></i>Email Configuration</a>  
+              </li>
+              <li class="nav-item">
+             	<a class="nav-link" th:href="@{/applicationConfig}"><i class="fa icon-globe fa-lg mt-4"></i>Application Configuration</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#" th:href="@{/folderConfig}"><iclass="fa fa-folder-open fa-lg mt-4"></i>Folder Configuration</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#"
+								th:href="@{/policyExtraction}"><i
+									class="fa fa-download fa-lg mt-4"></i>Policy Extraction</a></li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/fileupload}"><i class="fa fa-file fa-lg mt-4"></i>File Upload</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-danger" th:href="${@environment.getProperty('control.tower.hawtio.URL')}" target="_top"><i class="icon-layers"></i>Control Tower</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!-- Breadcrumb -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item">Admin</li>
+        <li class="breadcrumb-item active">File Upload</li>
+
+        <!-- Breadcrumb Menu-->
+        <li class="breadcrumb-menu d-md-down-none">
+          <div class="btn-group" role="group" aria-label="Button group">
+            <a class="btn" href="#"><i class="icon-speech"></i></a>
+            <a class="btn" th:href="@{/dashboard}"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+            <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>
+          </div>
+        </li>
+      </ol>
+
+      <div class="container-fluid">
+        <div class="animated fadeIn">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <strong>Upload File</strong>
+                  into RPA Server
+                </div>
+                <div class="card-body">
+                  <form id="upload-file-form" action="#" th:action="@{/uploadSingleFile}" th:object="${fileuploadForm}" method="post" 
+                  		enctype="multipart/form-data" class="form-horizontal">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="select2">Select Bank</label>
+                      <div class="col-md-9">
+                        <select id="select1" name="select1" class="form-control form-control-lg" th:field="*{bankName}" required="">
+                          <option value="0">Please select</option>
+                          <option th:each="item : ${banklist}" th:value="${item.bankName}" th:utext="${item.bankName}"/>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="select2">Select Process</label>
+                      <div class="col-md-9">
+                        <select id="select2" name="select1" class="form-control" th:field="*{processName}" required="">
+                          <option disabled="disabled" selected="selected" value="0">Please select</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="select3">Select Folder</label>
+                      <div class="col-md-9">
+                        <select id="select3" name="select3" class="form-control form-control-sm" th:field="*{folderDesc}" required="">
+                          <option disabled="disabled" selected="selected" value="0">Please select</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="file-input">File input</label>
+                      <div class="col-md-9">
+                        <input type="file" id="file-input" name="file-input" th:field="*{fileInput}" required=""/>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                  		<button id="submitFile" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>Upload</button>
+                  		<button type="reset" class="btn btn-sm btn-danger" onclick="this.form.reset();"><i class="fa fa-ban"></i> Reset</button>
+                	</div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--/.col-->
+          </div>
+          <!--/.row-->
+             
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Modal title</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>One fine body…</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+        </div>
+
+      </div>
+      <!-- /.conainer-fluid -->
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <span>Prodian Robo © 2017 Copyrights.</span>
+    <span class="ml-auto">Powered by <a href="http://prodian.co.in"><img src="img/bottom-logo.png" class="img-avatar"/></a></span>
+  </footer>
+
+  <!-- Bootstrap and necessary plugins -->
+  <script src="vendors/js/jquery.min.js"></script>
+  <script src="vendors/js/popper.min.js"></script>
+  <script src="vendors/js/bootstrap.min.js"></script>
+  <script src="vendors/js/pace.min.js"></script>
+
+  <!-- Plugins and scripts required by all views -->
+  <script src="vendors/js/Chart.min.js"></script>
+
+  <!-- main scripts -->
+
+  <script src="js/app.js"></script>
+  <script src="js/fileupload.js"></script>
+  
+</body>
+</html>
